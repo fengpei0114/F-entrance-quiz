@@ -1,0 +1,19 @@
+@import "../../style/variables";
+.group_div{
+ margin: 0 20px 10px 20px;
+ border: 1px solid $gray;
+ padding-bottom: 5px;
+}
+.group_title{
+ height:30px;
+ line-height: 30px;
+ background-color: $gray;
+ text-align: center;
+}
+.group_title p{
+ margin: 0;
+ color: white;
+}
+.group_number{
+ margin: 10px 0 10px 0;
+}
