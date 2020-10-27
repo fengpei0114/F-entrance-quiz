@@ -1,2 +1,33 @@
 .App {
+    background-color: #f7f7f7;
+}
+.number_list{
+    display: inline-block;
+    margin:5px 10px 0 10px;
+    width:100px;
+    padding:0 0 0 3px;
+    background-color: #eeeeee;
+}
+.add_number{
+    display: inline-block;
+    margin:5px 10px 0 10px;
+    width:100px;
+    border:1px solid gray;
+    background-color: transparent;
+}
+.spa_title{
+    display: inline-block;
+}
+.spa_button{
+    width: 100px;
+    height: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: none;
+    background-color: #ea5455;
+}
+.spa_div{
+    display: flex;
+    vertical-align: center;
+    justify-content: space-between;
 }

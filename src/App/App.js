@@ -1,54 +1,58 @@
-import Axios from 'axios';
 import React, { Component } from 'react';
 import './App.scss';
-import getUser from './request'
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-        mytext: []
+    this.state = {
+      mytext: []
     }
-}
-getData(){
-    //修改请求头
-    let myHeaders = new Headers({
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'text/plain'
-    });
-    fetch('http://localhost:8080/hello',{
-        method:'GET',
-        headers: myHeaders,
-        mode: 'cors',
-        //转或称字符串格式
-    }).then(res=>res.json()).then(
-        data=>{
-            console.log(data);
-            // eslint-disable-next-line
-            data.map((key)=>{
-                this.setState({
-                    mytext: [...this.state.mytext, key]
-                })
-            })
-        }
-    )
-}
-//React周期函数，防止死循环,在组建被渲染前调用
-componentWillMount(){
     this.getData();
-}
+  }
+
+  getData = () => {
+    const myHeaders = new Headers({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'text/plain'
+    });
+    fetch('http://localhost:8080/hello', {
+      method: 'GET',
+      headers: myHeaders,
+      mode: 'cors',
+    }).then(res => res.json()).then(
+      data => {
+        console.log(data);
+        data.map((key) => {
+          this.setState({
+            mytext: [...this.state.mytext, key]
+          })
+        })
+      }
+    )
+  }
 
   render() {
     return (
-      <React.Fragment>
-        <ul>
-            {
-              this.state.mytext.map((key, index)=>{
-              return <li key={index}>{key.name}</li>
-              })
-            }
-        </ul>
-      </React.Fragment>
+      <>
+      <div className = "spa_div">
+        <h2 className = "spa_title">
+          分组列表
+        </h2>
+        <button className="spa_button">分组学员</button>
+        
+      </div>
+    
+
+      <h2>学员列表</h2>
+      <div>
+      {
+            this.state.mytext.map((key, index) => {
+            return <p className="number_list">{key.id}. {key.name}  </p>
+            })
+          }
+          <button className="add_number"> + 添加学员</button>
+      </div>
+      </>
     );
   }
 }
