@@ -8,7 +8,7 @@ function GroupList(props) {
       <div className="group_title"><p>{props.group.id + 1}组</p></div>
       <div className="group_number">
         {
-          props.group.users.map(user => {
+          props.group.trainees.map(user => {
             return (
               <UserList key = {user.id} user = {user} />
             )
